@@ -291,11 +291,12 @@ class _home_pageState extends State<home_page> {
                                       Text(
                                         'Senior UI Designer',
                                         style: TextStyle(
+                                            fontFamily: 'sfm',
                                             fontSize: 18.sp,
                                             fontWeight: FontWeight.w500),
                                       ),
                                       Text(
-                                        'Senior UI Designer',
+                                        'Twitter • Jakarta, Indonesia ',
                                         style: TextStyle(
                                             color: Color(0xff374151),
                                             fontSize: 12.sp,
