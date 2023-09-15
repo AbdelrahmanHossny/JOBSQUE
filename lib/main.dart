@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'screens/applyJobSeccess_screen/view.dart';
-
+import 'screens/EditeProfile_screen/view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,7 +23,7 @@ class MyApp extends StatelessWidget {
                 primaryColor: Color(0xff111827)),
             title: 'JOBSQUE',
             debugShowCheckedModeBanner: false,
-            home: const applyJobSeccess_screen(),
+            home: const EditeProfile_screen(),
           );
         });
   }
