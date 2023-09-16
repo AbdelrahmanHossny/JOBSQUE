@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:jobsque/core/design/customButtom.dart';
 import 'package:jobsque/core/design/customText-form.dart';
 
@@ -13,6 +16,7 @@ class EditeProfile_screen extends StatefulWidget {
 }
 
 class _EditeProfile_screenState extends State<EditeProfile_screen> {
+  String? imagepath;
   int? selectedV;
   @override
   Widget build(BuildContext context) {
@@ -42,18 +46,49 @@ class _EditeProfile_screenState extends State<EditeProfile_screen> {
                 height: 36.h,
               ),
               Center(
-                child: CircleAvatar(
-                  backgroundColor: Colors.transparent,
-                  radius: 45,
-                  child: Stack(children: [
-                    Image.asset(
-                      'assets/images/Profile.png',
-                      width: 90.w,
-                      height: 90.h,
+                child: Container(
+                  width: 90.w,
+                  height: 90.h,
+                  decoration: BoxDecoration(
+                    color: Colors.transparent,
+                    // image: DecorationImage(
+                    //   image: FileImage(File(imagepath!)),
+                    //   fit: BoxFit.cover,
+                    // ),
+                    borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                    border: Border.all(
+                      color: Colors.transparent,
+                      width: 4.0,
                     ),
+                  ),
+                  child: Stack(children: [
+                    imagepath != null
+                        ? ClipOval(
+                            child: Image.file(
+                              File(
+                                imagepath!,
+                              ),
+                              width: 100.w,
+                              height: 100.h,
+                              fit: BoxFit.fill,
+                            ),
+                          )
+                        : Image.network(
+                            'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Crystal_personal.svg/640px-Crystal_personal.svg.png',
+                            width: 100.w,
+                            height: 100.h,
+                            fit: BoxFit.fill,
+                          ),
                     Center(
                       child: IconButton(
-                          onPressed: () {},
+                          onPressed: () async {
+                            var image = await ImagePicker.platform
+                                .getImage(source: ImageSource.gallery);
+                            if (image != null) {
+                              imagepath = image.path;
+                              setState(() {});
+                            }
+                          },
                           icon: SvgPicture.asset('assets/icons/camera.svg')),
                     )
                   ]),
@@ -64,7 +99,14 @@ class _EditeProfile_screenState extends State<EditeProfile_screen> {
               ),
               Center(
                 child: TextButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      var image = await ImagePicker.platform
+                          .getImage(source: ImageSource.gallery);
+                      if (image != null) {
+                        imagepath = image.path;
+                        setState(() {});
+                      }
+                    },
                     child: Text(
                       'Change  Photo',
                       style: TextStyle(
