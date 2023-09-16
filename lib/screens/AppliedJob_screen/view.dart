@@ -53,33 +53,36 @@ class _AppliedJob_screenState extends State<AppliedJob_screen>
           SizedBox(
             height: 32.h,
           ),
-          Container(
-            alignment: Alignment.center,
-            width: 327.w,
-            height: 46.h,
-            decoration: BoxDecoration(
-              color: Color(0xffF4F4F5),
-              borderRadius: BorderRadius.circular(100),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: Container(
+              alignment: Alignment.center,
+              width: 327.w,
+              height: 46.h,
+              decoration: BoxDecoration(
+                color: Color(0xffF4F4F5),
+                borderRadius: BorderRadius.circular(100),
+              ),
+              child: TabBar(
+                  onTap: (value) {
+                    currentPage = value;
+                    setState(() {});
+                  },
+                  indicator: BoxDecoration(
+                      color: Color(0xff091A7A),
+                      borderRadius: BorderRadius.circular(100)),
+                  labelColor: Color(0xffFFFFFF),
+                  unselectedLabelColor: Color(0xff6B7280),
+                  controller: tapcontroller,
+                  tabs: [
+                    Tab(
+                      text: 'Desicription',
+                    ),
+                    Tab(
+                      text: 'Company',
+                    ),
+                  ]),
             ),
-            child: TabBar(
-                onTap: (value) {
-                  currentPage = value;
-                  setState(() {});
-                },
-                indicator: BoxDecoration(
-                    color: Color(0xff091A7A),
-                    borderRadius: BorderRadius.circular(100)),
-                labelColor: Color(0xffFFFFFF),
-                unselectedLabelColor: Color(0xff6B7280),
-                controller: tapcontroller,
-                tabs: [
-                  Tab(
-                    text: 'Desicription',
-                  ),
-                  Tab(
-                    text: 'Company',
-                  ),
-                ]),
           ),
           currentPage == 0
               ? Column(
