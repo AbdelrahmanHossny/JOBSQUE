@@ -42,6 +42,8 @@ dependencies:
   image_picker: ^1.0.4
   intl: ^0.18.1
   dotted_border: ^2.0.0+3
+  im_stepper: ^1.0.1+1
+  flutter_timeline: ^0.3.0
 
 dev_dependencies:
   flutter_test:
