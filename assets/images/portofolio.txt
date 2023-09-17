@@ -1,0 +1,243 @@
+import 'package:dotted_border/dotted_border.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/material/list_tile.dart';
+
+class Portofolio extends StatelessWidget {
+  const Portofolio({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        centerTitle: true,
+        title: Text(
+          'Portfolio',
+          style: TextStyle(
+              color: Color(0xff111827),
+              fontSize: 20,
+              fontWeight: FontWeight.w500),
+        ),
+        leading: Image.asset(
+          'assets/arrow-left.png',
+          cacheHeight: 24,
+          cacheWidth: 24,
+        ),
+      ),
+      body: Column(children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(24, 36, 24, 16),
+          child: Text(
+            'Add portfolio here',
+            style: TextStyle(
+                color: Color(0xff111827),
+                fontSize: 20,
+                fontWeight: FontWeight.w500),
+          ),
+        ),
+        Center(
+          child: DottedBorder(
+            borderType: BorderType.RRect,
+            strokeWidth: 2,
+            dashPattern: [5, 5, 5, 5],
+            radius: Radius.circular(8),
+            color: Color(0xff3366FF),
+            child: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(8)),
+                child: Container(
+                  child: Column(children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 16),
+                      child: Image.asset(
+                        'assets/document-upload.png',
+                        cacheHeight: 56,
+                        cacheWidth: 56,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 16,
+                    ),
+                    Text(
+                      'Upload your other file',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: Color(0xff111827)),
+                    ),
+                    SizedBox(height: 8),
+                    Text(
+                      'Max. file size 10 MB',
+                      style: TextStyle(
+                          color: Color(0xff6B7280),
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400),
+                    ),
+                    SizedBox(
+                      height: 16,
+                    ),
+                    Container(
+                      child: Row(children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 109),
+                          child: Image.asset(
+                            'assets/export2.png',
+                            cacheHeight: 20,
+                            cacheWidth: 20,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          'Add file',
+                          style: TextStyle(
+                              color: Color(0xff3366FF),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500),
+                        )
+                      ]),
+                      height: 42,
+                      width: 295,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(100),
+                          border: Border.all(color: Color(0xff3366FF))),
+                    )
+                  ]),
+                  height: 223,
+                  width: 327,
+                  decoration: BoxDecoration(
+                      color: Color(0xffECF2FF),
+                      borderRadius: BorderRadius.circular(8)),
+                )),
+          ),
+        ),
+        SizedBox(height: 24),
+        Container(
+          child: ListTile(
+            leading: Image.asset(
+              'assets/Logo (2).png',
+              cacheHeight: 40,
+              cacheWidth: 40,
+            ),
+            title: Text(
+              'UI/UX Designer',
+              style: TextStyle(
+                  color: Color(0xff111827),
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500),
+            ),
+            subtitle: Text(
+              'CV.pdf 300KB',
+              style: TextStyle(
+                  color: Color(0xff6B7280),
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400),
+            ),
+            trailing: Wrap(children: [
+              Image.asset(
+                'assets/edit-2 (1).png',
+                cacheHeight: 24,
+                cacheWidth: 24,
+              ),
+              SizedBox(
+                width: 8,
+              ),
+              Image.asset('assets/close-circle.png',
+                  cacheHeight: 24, cacheWidth: 24)
+            ]),
+          ),
+          height: 74,
+          width: 327,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(color: Color(0xffD1D5DB))),
+        ),
+        SizedBox(height: 16),
+         Container(
+          child: ListTile(
+            leading: Image.asset(
+              'assets/Logo (2).png',
+              cacheHeight: 40,
+              cacheWidth: 40,
+            ),
+            title: Text(
+              '3D Designer',
+              style: TextStyle(
+                  color: Color(0xff111827),
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500),
+            ),
+            subtitle: Text(
+              'CV.pdf 300KB',
+              style: TextStyle(
+                  color: Color(0xff6B7280),
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400),
+            ),
+            trailing: Wrap(children: [
+              Image.asset(
+                'assets/edit-2 (1).png',
+                cacheHeight: 24,
+                cacheWidth: 24,
+              ),
+              SizedBox(
+                width: 8,
+              ),
+              Image.asset('assets/close-circle.png',
+                  cacheHeight: 24, cacheWidth: 24)
+            ]),
+          ),
+          height: 74,
+          width: 327,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(color: Color(0xffD1D5DB))),
+        ),SizedBox(height: 16),
+         Container(
+          child: ListTile(
+            leading: Image.asset(
+              'assets/Logo (2).png',
+              cacheHeight: 40,
+              cacheWidth: 40,
+            ),
+            title: Text(
+              'Graphik Designer',
+              style: TextStyle(
+                  color: Color(0xff111827),
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500),
+            ),
+            subtitle: Text(
+              'CV.pdf 300KB',
+              style: TextStyle(
+                  color: Color(0xff6B7280),
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400),
+            ),
+            trailing: Wrap(children: [
+              Image.asset(
+                'assets/edit-2 (1).png',
+                cacheHeight: 24,
+                cacheWidth: 24,
+              ),
+              SizedBox(
+                width: 8,
+              ),
+              Image.asset('assets/close-circle.png',
+                  cacheHeight: 24, cacheWidth: 24)
+            ]),
+          ),
+          height: 74,
+          width: 327,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(color: Color(0xffD1D5DB))),
+        ),SizedBox(height: 16),
+      ]),
+    );
+  }
+}

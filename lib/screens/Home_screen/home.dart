@@ -17,6 +17,7 @@ class _home_pageState extends State<home_page> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24),
       child: ListView(
+        physics: BouncingScrollPhysics(),
         children: [
           SizedBox(
             height: 16.h,
