@@ -34,7 +34,7 @@ class _EditeProfile_screenState extends State<EditeProfile_screen> {
                     width: 66.5.w,
                   ),
                   Text(
-                    'Complete Profile',
+                    'Personal Details',
                     style: TextStyle(
                         fontFamily: 'sfm',
                         fontSize: 20,
@@ -183,54 +183,57 @@ class _EditeProfile_screenState extends State<EditeProfile_screen> {
                     height: 57,
                     child: customform(
                       hintText: '01090887848',
-                      prefix: DropdownButtonHideUnderline(
-                        child: DropdownButton(
-                          value: selectedV,
-                          hint: Image.asset('assets/images/FLAG.png',
-                              width: 24.w, height: 18.h),
-                          items: [
-                            DropdownMenuItem(
-                              child: Image.asset(
-                                'assets/images/England.png',
-                                width: 24.w,
-                                height: 18.h,
-                              ),
-                              value: 1,
-                            ),
-                            DropdownMenuItem(
-                              child: Image.asset('assets/images/FLAG.png',
-                                  width: 24.w, height: 18.h),
-                              value: 2,
-                            ),
-                            DropdownMenuItem(
-                              child: Image.asset('assets/images/France.png',
-                                  width: 24.w, height: 18.h),
-                              value: 3,
-                            ),
-                            DropdownMenuItem(
-                              child: Image.asset('assets/images/Germany.png',
-                                  width: 24.w, height: 18.h),
-                              value: 4,
-                            ),
-                            DropdownMenuItem(
-                              child: Image.asset('assets/images/Portugal.png',
-                                  width: 24.w, height: 18.h),
-                              value: 5,
-                            ),
-                            DropdownMenuItem(
-                              child: Image.asset(
-                                  'assets/images/Saudi Arabia.png',
+                      prefix: Padding(
+                        padding: const EdgeInsets.only(left: 15),
+                        child: DropdownButtonHideUnderline(
+                          child: DropdownButton(
+                            value: selectedV,
+                            hint: Image.asset('assets/images/FLAG.png',
+                                width: 24.w, height: 18.h),
+                            items: [
+                              DropdownMenuItem(
+                                child: Image.asset(
+                                  'assets/images/England.png',
                                   width: 24.w,
-                                  height: 18.h),
-                              value: 6,
-                            ),
-                          ],
-                          onChanged: (value) {
-                            selectedV = value;
-                            setState(() {
+                                  height: 18.h,
+                                ),
+                                value: 1,
+                              ),
+                              DropdownMenuItem(
+                                child: Image.asset('assets/images/FLAG.png',
+                                    width: 24.w, height: 18.h),
+                                value: 2,
+                              ),
+                              DropdownMenuItem(
+                                child: Image.asset('assets/images/France.png',
+                                    width: 24.w, height: 18.h),
+                                value: 3,
+                              ),
+                              DropdownMenuItem(
+                                child: Image.asset('assets/images/Germany.png',
+                                    width: 24.w, height: 18.h),
+                                value: 4,
+                              ),
+                              DropdownMenuItem(
+                                child: Image.asset('assets/images/Portugal.png',
+                                    width: 24.w, height: 18.h),
+                                value: 5,
+                              ),
+                              DropdownMenuItem(
+                                child: Image.asset(
+                                    'assets/images/Saudi Arabia.png',
+                                    width: 24.w,
+                                    height: 18.h),
+                                value: 6,
+                              ),
+                            ],
+                            onChanged: (value) {
                               selectedV = value;
-                            });
-                          },
+                              setState(() {
+                                selectedV = value;
+                              });
+                            },
+                          ),
                         ),
                       ),
                     ),
