@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:jobsque/core/design/customTextFormField.dart';
+import 'package:jobsque/screens/ApplyJob_screen/view.dart';
+import 'package:jobsque/screens/notification_screen/view.dart';
+
+import '../../core/logic/helper.dart';
 
 class home_page extends StatefulWidget {
   const home_page({super.key});
@@ -52,7 +56,9 @@ class _home_pageState extends State<home_page> {
                     color: Color(0xffFFFFFF),
                     borderRadius: BorderRadius.circular(100)),
                 child: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    navigateto(context, notification_screen());
+                  },
                   icon: SvgPicture.asset(
                     'assets/icons/notification.svg',
                   ),
@@ -226,7 +232,9 @@ class _home_pageState extends State<home_page> {
                             fixedSize: Size(96.w, 32.h),
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30))),
-                        onPressed: () {},
+                        onPressed: () {
+                          navigateto(context, applyJob_screen());
+                        },
                         child: Text(
                           'Apply now',
                           style: TextStyle(
@@ -263,147 +271,152 @@ class _home_pageState extends State<home_page> {
           ListView.separated(
               physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
-              itemBuilder: (context, index) => Container(
-                    width: 327.w,
-                    height: 87.h,
-                    color: Colors.transparent,
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  Image.asset(
-                                    'assets/images/Twitter Logo.png',
-                                    width: 40.w,
-                                    height: 40.w,
-                                  ),
-                                  SizedBox(
-                                    width: 16.w,
-                                  ),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        'Senior UI Designer',
-                                        style: TextStyle(
-                                            fontFamily: 'sfm',
-                                            fontSize: 18.sp,
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                      Text(
-                                        'Twitter • Jakarta, Indonesia ',
-                                        style: TextStyle(
-                                            color: Color(0xff374151),
-                                            fontSize: 12.sp,
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  setState(() {
-                                    select = index;
-                                  });
-                                },
-                                child: SvgPicture.asset(select == index
-                                    ? 'assets/icons/archive-minus44.svg'
-                                    : 'assets/icons/archive-minus55.svg'),
-                              )
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  Container(
-                                    width: 73.w,
-                                    height: 26.h,
-                                    decoration: BoxDecoration(
-                                        color: Color(0xffD6E4FF),
-                                        borderRadius:
-                                            BorderRadius.circular(100)),
-                                    child: Center(
-                                      child: Text(
-                                        'Fulltime',
-                                        style: TextStyle(
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w400,
-                                            color: Color(0xff3366FF)),
+              itemBuilder: (context, index) => InkWell(
+                    onTap: () {
+                      navigateto(context, applyJob_screen());
+                    },
+                    child: Container(
+                      width: 327.w,
+                      height: 87.h,
+                      color: Colors.transparent,
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Image.asset(
+                                      'assets/images/Twitter Logo.png',
+                                      width: 40.w,
+                                      height: 40.w,
+                                    ),
+                                    SizedBox(
+                                      width: 16.w,
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          'Senior UI Designer',
+                                          style: TextStyle(
+                                              fontFamily: 'sfm',
+                                              fontSize: 18.sp,
+                                              fontWeight: FontWeight.w500),
+                                        ),
+                                        Text(
+                                          'Twitter • Jakarta, Indonesia ',
+                                          style: TextStyle(
+                                              color: Color(0xff374151),
+                                              fontSize: 12.sp,
+                                              fontWeight: FontWeight.w500),
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      select = index;
+                                    });
+                                  },
+                                  child: SvgPicture.asset(select == index
+                                      ? 'assets/icons/archive-minus44.svg'
+                                      : 'assets/icons/archive-minus55.svg'),
+                                )
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Container(
+                                      width: 73.w,
+                                      height: 26.h,
+                                      decoration: BoxDecoration(
+                                          color: Color(0xffD6E4FF),
+                                          borderRadius:
+                                              BorderRadius.circular(100)),
+                                      child: Center(
+                                        child: Text(
+                                          'Fulltime',
+                                          style: TextStyle(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w400,
+                                              color: Color(0xff3366FF)),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  SizedBox(
-                                    width: 8.w,
-                                  ),
-                                  Container(
-                                    width: 73.w,
-                                    height: 26.h,
-                                    decoration: BoxDecoration(
-                                        color: Color(0xffD6E4FF),
-                                        borderRadius:
-                                            BorderRadius.circular(100)),
-                                    child: Center(
-                                      child: Text(
-                                        'Remote',
-                                        style: TextStyle(
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w400,
-                                            color: Color(0xff3366FF)),
+                                    SizedBox(
+                                      width: 8.w,
+                                    ),
+                                    Container(
+                                      width: 73.w,
+                                      height: 26.h,
+                                      decoration: BoxDecoration(
+                                          color: Color(0xffD6E4FF),
+                                          borderRadius:
+                                              BorderRadius.circular(100)),
+                                      child: Center(
+                                        child: Text(
+                                          'Remote',
+                                          style: TextStyle(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w400,
+                                              color: Color(0xff3366FF)),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  SizedBox(
-                                    width: 8.w,
-                                  ),
-                                  Container(
-                                    width: 73.w,
-                                    height: 26.h,
-                                    decoration: BoxDecoration(
-                                        color: Color(0xffD6E4FF),
-                                        borderRadius:
-                                            BorderRadius.circular(100)),
-                                    child: Center(
-                                      child: Text(
-                                        'Senior',
-                                        style: TextStyle(
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w400,
-                                            color: Color(0xff3366FF)),
+                                    SizedBox(
+                                      width: 8.w,
+                                    ),
+                                    Container(
+                                      width: 73.w,
+                                      height: 26.h,
+                                      decoration: BoxDecoration(
+                                          color: Color(0xffD6E4FF),
+                                          borderRadius:
+                                              BorderRadius.circular(100)),
+                                      child: Center(
+                                        child: Text(
+                                          'Senior',
+                                          style: TextStyle(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w400,
+                                              color: Color(0xff3366FF)),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  Text(
-                                    '\$15K',
-                                    style: TextStyle(
-                                        color: Color(0xff2E8E18),
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                  Text(
-                                    '/Month',
-                                    style: TextStyle(
-                                        color: Color(0xff6B7280),
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                ],
-                              )
-                            ],
-                          )
-                        ]),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      '\$15K',
+                                      style: TextStyle(
+                                          color: Color(0xff2E8E18),
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                    Text(
+                                      '/Month',
+                                      style: TextStyle(
+                                          color: Color(0xff6B7280),
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            )
+                          ]),
+                    ),
                   ),
               separatorBuilder: (context, index) => Padding(
                   padding: EdgeInsets.symmetric(vertical: 20),

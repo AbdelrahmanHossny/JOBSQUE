@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:jobsque/core/logic/helper.dart';
+import 'package:jobsque/screens/Home_screen/view.dart';
+import 'package:jobsque/screens/JobApplyStepper_screen/view.dart';
 
 import '../../core/design/customButtom.dart';
 
@@ -13,6 +16,7 @@ class applyJob_screen extends StatefulWidget {
 
 class _applyJob_screenState extends State<applyJob_screen>
     with SingleTickerProviderStateMixin {
+  bool select = true;
   int currentPage = 0;
   late TabController tapcontroller;
   @override
@@ -38,7 +42,9 @@ class _applyJob_screenState extends State<applyJob_screen>
           children: [
             CustomButtom(
               text: 'Apply now',
-              onPressed: () {},
+              onPressed: () {
+                navigateto(context, JobStepper_screen());
+              },
             ),
           ],
         ),
@@ -55,7 +61,9 @@ class _applyJob_screenState extends State<applyJob_screen>
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          navigateto(context, home_screen());
+                        },
                         icon: SvgPicture.asset(
                           'assets/icons/arrow-left (1).svg',
                         ),
@@ -65,9 +73,15 @@ class _applyJob_screenState extends State<applyJob_screen>
                         style: TextStyle(fontSize: 20, fontFamily: 'sfm'),
                       ),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            select = !select;
+                          });
+                        },
                         icon: SvgPicture.asset(
-                          'assets/icons/archive-minus (1).svg',
+                          select
+                              ? 'assets/icons/archive-minus44.svg'
+                              : 'assets/icons/archive-minus55.svg',
                         ),
                       ),
                     ],

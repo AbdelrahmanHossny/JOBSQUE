@@ -5,6 +5,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:jobsque/core/design/customButtom.dart';
 import 'package:jobsque/core/design/customStepper.dart';
 import 'package:jobsque/core/design/customText-form.dart';
+import 'package:jobsque/core/logic/helper.dart';
+import 'package:jobsque/screens/ApplyJob_screen/view.dart';
+import 'package:jobsque/screens/Home_screen/applied.dart';
+import 'package:jobsque/screens/applyJobSeccess_screen/view.dart';
 
 class JobStepper_screen extends StatefulWidget {
   const JobStepper_screen({super.key});
@@ -41,6 +45,8 @@ class _JobStepper_screenState extends State<JobStepper_screen> {
                   setState(() {
                     if (_cuurentindex < 2) {
                       _cuurentindex++;
+                    } else {
+                      navigateto(context, applyJobSeccess_screen());
                     }
                   });
                 },
@@ -64,7 +70,12 @@ class _JobStepper_screenState extends State<JobStepper_screen> {
                       }
                       setState(() {});
                     },
-                    child: SvgPicture.asset('assets/icons/arrow-left (1).svg')),
+                    child: InkWell(
+                        onTap: () {
+                          navigateto(context, applyJob_screen());
+                        },
+                        child: SvgPicture.asset(
+                            'assets/icons/arrow-left (1).svg'))),
                 SizedBox(
                   width: 95.w,
                 ),

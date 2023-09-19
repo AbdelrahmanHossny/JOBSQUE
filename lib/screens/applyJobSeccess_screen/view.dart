@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:jobsque/core/design/customButtom.dart';
+import 'package:jobsque/core/logic/helper.dart';
+import 'package:jobsque/screens/Home_screen/view.dart';
+import 'package:jobsque/screens/JobApplyStepper_screen/view.dart';
 
 class applyJobSeccess_screen extends StatefulWidget {
   const applyJobSeccess_screen({super.key});
@@ -22,7 +25,9 @@ class _applyJobSeccess_screenState extends State<applyJobSeccess_screen> {
             Row(
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    navigateto(context, JobStepper_screen());
+                  },
                   icon: SvgPicture.asset(
                     'assets/icons/arrow-left (1).svg',
                   ),
@@ -73,7 +78,9 @@ class _applyJobSeccess_screenState extends State<applyJobSeccess_screen> {
             ),
             CustomButtom(
               text: 'Back to home',
-              onPressed: () {},
+              onPressed: () {
+                navigateto(context, home_screen(), replacement: true);
+              },
             )
           ]),
         ),

@@ -33,7 +33,10 @@ class _CreatAccount_screenState extends State<CreatAccount_screen> {
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
               InkWell(
                   onTap: () {},
-                  child: SvgPicture.asset('assets/icons/arrow-left.svg')),
+                  child: InkWell(onTap: () {
+                      navigateto(context, SignUp_screen());
+                    },
+                    child: SvgPicture.asset('assets/icons/arrow-left.svg'))),
               SvgPicture.asset('assets/icons/Logo.svg'),
             ]),
             SizedBox(

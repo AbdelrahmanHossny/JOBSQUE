@@ -153,7 +153,7 @@ class _SignUp_screenState extends State<SignUp_screen> {
             CustomButtom(
               text: 'Login',
               onPressed: () {
-                navigateto(context, home_screen());
+                navigateto(context, home_screen(), replacement: true);
               },
             ),
             SizedBox(

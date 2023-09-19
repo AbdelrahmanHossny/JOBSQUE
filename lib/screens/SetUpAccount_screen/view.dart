@@ -18,7 +18,11 @@ class SetUpAccount_screen extends StatelessWidget {
             height: 16.h,
           ),
           Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            SvgPicture.asset('assets/icons/arrow-left.svg'),
+            InkWell(
+                onTap: () {
+                  navigateto(context, SignUp_screen());
+                },
+                child: SvgPicture.asset('assets/icons/arrow-left.svg')),
             SvgPicture.asset('assets/icons/Logo.svg'),
           ]),
           SizedBox(
