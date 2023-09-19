@@ -3,6 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:jobsque/core/design/customButtom.dart';
 import 'package:jobsque/core/design/customTextFormField.dart';
+import 'package:jobsque/core/logic/helper.dart';
+import 'package:jobsque/screens/CheckYourEmail_screen/view.dart';
+import 'package:jobsque/screens/SignUp_screen/view.dart';
 
 class ForgotPassword_screen extends StatefulWidget {
   const ForgotPassword_screen({super.key});
@@ -53,9 +56,9 @@ class _ForgotPassword_screenState extends State<ForgotPassword_screen> {
               SizedBox(
                 height: 40.h,
               ),
-              CustomForm(isvalid: false,
+              CustomForm(
+                  isvalid: false,
                   isvis: true,
-
                   keyboardType: TextInputType.emailAddress,
                   icon: 'assets/icons/sms.svg',
                   hint: 'Enter your email....'),
@@ -72,7 +75,9 @@ class _ForgotPassword_screenState extends State<ForgotPassword_screen> {
                         fontWeight: FontWeight.w500),
                   ),
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        navigateto(context, SignUp_screen(), replacement: true);
+                      },
                       child: Text(
                         'Login',
                         style: TextStyle(
@@ -87,7 +92,10 @@ class _ForgotPassword_screenState extends State<ForgotPassword_screen> {
               ),
               CustomButtom(
                 text: 'Request password reset',
-                onPressed: () {},
+                onPressed: () {
+                  navigateto(context, CheckYourEmail_screen(),
+                      replacement: true);
+                },
               )
             ],
           ),

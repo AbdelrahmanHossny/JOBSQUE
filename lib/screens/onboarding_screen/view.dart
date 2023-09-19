@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:jobsque/core/design/customButtom.dart';
+import 'package:jobsque/core/logic/helper.dart';
+import 'package:jobsque/screens/CreatAccount_screen/view.dart';
+import 'package:jobsque/screens/SignUp_screen/view.dart';
 
 class onboarding_screen extends StatefulWidget {
   const onboarding_screen({super.key});
@@ -41,7 +44,12 @@ class _onboarding_screenState extends State<onboarding_screen> {
                 SvgPicture.asset('assets/icons/Logo.svg'),
                 TextButton(
                     onPressed: () {
-                      cuurentpage++;
+                      if (cuurentpage == 2) {
+                        navigateto(context, CreatAccount_screen(),
+                            replacement: true);
+                      } else {
+                        cuurentpage++;
+                      }
                       setState(() {});
                     },
                     child: Text(
@@ -168,8 +176,12 @@ class _onboarding_screenState extends State<onboarding_screen> {
                 CustomButtom(
                   text: cuurentpage == 2 ? 'Get Started' : 'Next',
                   onPressed: () {
-                    cuurentpage++;
-                    setState(() {});
+                    if (cuurentpage == 2) {
+                      navigateto(context, SignUp_screen(), replacement: true);
+                    } else {
+                      cuurentpage++;
+                      setState(() {});
+                    }
                   },
                 )
               ],

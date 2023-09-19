@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:jobsque/core/design/customButtom.dart';
+import 'package:jobsque/core/logic/helper.dart';
+import 'package:jobsque/screens/CreatNewPassword_screen/view.dart';
 
 class CheckYourEmail_screen extends StatelessWidget {
   const CheckYourEmail_screen({super.key});
@@ -53,11 +55,14 @@ class CheckYourEmail_screen extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: 266.h,
+              height: 300.h,
             ),
             CustomButtom(
               text: 'Open email app',
-              onPressed: () {},
+              onPressed: () {
+                navigateto(context, CreatNewPassword_screen(),
+                    replacement: true);
+              },
             ),
           ]),
         ),

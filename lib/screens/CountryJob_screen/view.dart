@@ -2,6 +2,8 @@ import 'package:chips_choice/chips_choice.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:jobsque/core/design/customButtom.dart';
+import 'package:jobsque/core/logic/helper.dart';
+import 'package:jobsque/screens/SetUpAccount_screen/view.dart';
 
 class ContryJob_screeen extends StatefulWidget {
   const ContryJob_screeen({super.key});
@@ -125,7 +127,9 @@ class _ContryJob_screeenState extends State<ContryJob_screeen>
           ),
           CustomButtom(
             text: 'Next',
-            onPressed: () {},
+            onPressed: () {
+              navigateto(context, SetUpAccount_screen());
+            },
           )
         ]),
       ),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:jobsque/core/design/customButtom.dart';
+import 'package:jobsque/core/logic/helper.dart';
+import 'package:jobsque/screens/SignUp_screen/view.dart';
 
 class SetUpAccount_screen extends StatelessWidget {
   const SetUpAccount_screen({super.key});
@@ -62,7 +64,9 @@ class SetUpAccount_screen extends StatelessWidget {
           ),
           CustomButtom(
             text: 'Get Started',
-            onPressed: () {},
+            onPressed: () {
+              navigateto(context, SignUp_screen());
+            },
           )
         ]),
       ),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:jobsque/core/design/customButtom.dart';
+import 'package:jobsque/core/logic/helper.dart';
+import 'package:jobsque/screens/CountryJob_screen/view.dart';
 
 class TypeOfWork_screen extends StatefulWidget {
   const TypeOfWork_screen({super.key});
@@ -83,13 +85,12 @@ class _TypeOfWork_screenState extends State<TypeOfWork_screen> {
                         height: 48,
                         child: CircleAvatar(
                           backgroundColor: Color(0xffFFFFFF),
-                          child: SvgPicture.asset(
-                            'assets/icons/Vector.svg',
-                          ),
+                          child: SvgPicture.asset(image[index],
+                              color: Color(0xff3366FF)),
                         ),
                       ),
                       Text(
-                        'UI/UX Designer',
+                        name[index],
                         style: TextStyle(color: Color(0xff111827)),
                       )
                     ]),
@@ -101,10 +102,29 @@ class _TypeOfWork_screenState extends State<TypeOfWork_screen> {
           ),
           CustomButtom(
             text: 'Next',
-            onPressed: () {},
+            onPressed: () {
+              navigateto(context, ContryJob_screeen());
+            },
           )
         ]),
       ),
     );
   }
 }
+
+List<String> name = [
+  'UI/UX Designer',
+  'Ilustrator Designer',
+  'Developer',
+  'Management',
+  'Information Technology',
+  'Research and Analytics'
+];
+List<String> image = [
+  'assets/icons/Vector.svg',
+  'assets/icons/Ilustrator Category1111.svg',
+  'assets/icons/Developer Category.svg',
+  'assets/icons/Management Category.svg',
+  'assets/icons/Information technology category.svg',
+  'assets/icons/Research and Analytics category (1).svg',
+];

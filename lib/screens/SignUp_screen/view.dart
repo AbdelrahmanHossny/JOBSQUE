@@ -3,6 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:jobsque/core/design/customButtom.dart';
 import 'package:jobsque/core/design/customTextFormField.dart';
+import 'package:jobsque/core/logic/helper.dart';
+import 'package:jobsque/screens/CreatAccount_screen/view.dart';
+import 'package:jobsque/screens/ForgotPassword_screen/view.dart';
+import 'package:jobsque/screens/Home_screen/view.dart';
 
 class SignUp_screen extends StatefulWidget {
   const SignUp_screen({super.key});
@@ -106,7 +110,9 @@ class _SignUp_screenState extends State<SignUp_screen> {
                   ],
                 ),
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      navigateto(context, ForgotPassword_screen());
+                    },
                     child: Text(
                       'Forgot Password?',
                       style: TextStyle(
@@ -129,7 +135,9 @@ class _SignUp_screenState extends State<SignUp_screen> {
                       fontWeight: FontWeight.w500),
                 ),
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      navigateto(context, CreatAccount_screen());
+                    },
                     child: Text(
                       'Register',
                       style: TextStyle(
@@ -144,7 +152,9 @@ class _SignUp_screenState extends State<SignUp_screen> {
             ),
             CustomButtom(
               text: 'Login',
-              onPressed: () {},
+              onPressed: () {
+                navigateto(context, home_screen());
+              },
             ),
             SizedBox(
               height: 20.h,

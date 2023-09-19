@@ -3,6 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:jobsque/core/design/customButtom.dart';
 import 'package:jobsque/core/design/customTextFormField.dart';
+import 'package:jobsque/core/logic/helper.dart';
+import 'package:jobsque/screens/SignUp_screen/view.dart';
+import 'package:jobsque/screens/TypeOfWork_screen/view.dart';
 
 class CreatAccount_screen extends StatefulWidget {
   const CreatAccount_screen({super.key});
@@ -12,7 +15,7 @@ class CreatAccount_screen extends StatefulWidget {
 }
 
 class _CreatAccount_screenState extends State<CreatAccount_screen> {
-  late TextEditingController controller;
+  TextEditingController? controller;
   @override
   @override
   Widget build(BuildContext context) {
@@ -88,7 +91,9 @@ class _CreatAccount_screenState extends State<CreatAccount_screen> {
                       color: Color(0xff9CA3AF)),
                 ),
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      navigateto(context, SignUp_screen());
+                    },
                     child: Text(
                       'Login',
                       style: TextStyle(
@@ -106,7 +111,9 @@ class _CreatAccount_screenState extends State<CreatAccount_screen> {
               children: [
                 CustomButtom(
                   text: 'Create account',
-                  onPressed: () {},
+                  onPressed: () {
+                    navigateto(context, TypeOfWork_screen());
+                  },
                 ),
               ],
             ),

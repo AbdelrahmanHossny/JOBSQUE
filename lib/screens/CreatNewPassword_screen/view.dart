@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:jobsque/core/design/customButtom.dart';
 import 'package:jobsque/core/design/customTextFormField.dart';
+import 'package:jobsque/core/logic/helper.dart';
+import 'package:jobsque/screens/passwordSucsses_screen/view.dart';
 
 class CreatNewPassword_screen extends StatelessWidget {
   const CreatNewPassword_screen({super.key});
@@ -26,9 +28,9 @@ class CreatNewPassword_screen extends StatelessWidget {
               SvgPicture.asset('assets/icons/arrow-left.svg'),
               SvgPicture.asset('assets/icons/Logo.svg'),
             ]),
-              SizedBox(
-                height: 39.h,
-              ),
+            SizedBox(
+              height: 39.h,
+            ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -74,7 +76,10 @@ class CreatNewPassword_screen extends StatelessWidget {
             ),
             CustomButtom(
               text: 'Reset password',
-              onPressed: () {},
+              onPressed: () {
+                navigateto(context, PasswordSucssess_screen(),
+                    replacement: true);
+              },
             ),
           ]),
         ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:jobsque/core/design/customButtom.dart';
+import 'package:jobsque/core/logic/helper.dart';
+import 'package:jobsque/screens/SignUp_screen/view.dart';
 
 class PasswordSucssess_screen extends StatelessWidget {
   const PasswordSucssess_screen({super.key});
@@ -70,7 +72,9 @@ class PasswordSucssess_screen extends StatelessWidget {
             ),
             CustomButtom(
               text: 'Open email app',
-              onPressed: () {},
+              onPressed: () {
+                navigateto(context, SignUp_screen(), replacement: true);
+              },
             )
           ]),
         ),
