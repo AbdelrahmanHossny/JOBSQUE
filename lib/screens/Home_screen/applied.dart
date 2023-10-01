@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:jobsque/core/design/customStepper.dart';
+import 'package:jobsque/core/logic/helper.dart';
+import 'package:jobsque/screens/Home_screen/view.dart';
+import 'package:jobsque/screens/appliedJobDet_screen/view.dart';
 
 class applied_page extends StatefulWidget {
   const applied_page({super.key});
@@ -35,7 +39,9 @@ class _applied_pageState extends State<applied_page>
             child: Row(
               children: [
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      navigateto(context, home_screen());
+                    },
                     icon: SvgPicture.asset('assets/icons/arrow-left (1).svg')),
                 SizedBox(
                   width: 65.w,
@@ -76,10 +82,10 @@ class _applied_pageState extends State<applied_page>
                   controller: tapcontroller,
                   tabs: [
                     Tab(
-                      text: 'Desicription',
+                      text: 'Active',
                     ),
                     Tab(
-                      text: 'Company',
+                      text: 'Rejected',
                     ),
                   ]),
             ),
@@ -129,34 +135,44 @@ class _applied_pageState extends State<applied_page>
                           child: Column(children: [
                             Row(
                               children: [
-                                Image.asset(
-                                  'assets/images/Spectrum Logo.png',
-                                  width: 40.w,
-                                  height: 40.w,
+                                InkWell(
+                                  onTap: () {
+                                    navigateto(context, AppliedJobDet_screen());
+                                  },
+                                  child: Image.asset(
+                                    'assets/images/Spectrum Logo.png',
+                                    width: 40.w,
+                                    height: 40.w,
+                                  ),
                                 ),
                                 SizedBox(
                                   width: 16.w,
                                 ),
-                                Column(
-                                  children: [
-                                    Text(
-                                      'UI/UX Designer',
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w500,
-                                          fontFamily: 'sfm'),
-                                    ),
-                                    SizedBox(
-                                      height: 4.h,
-                                    ),
-                                    Text(
-                                      'Spectrum • Jakarta, Indonesia ',
-                                      style: TextStyle(
-                                          color: Color(0xff374151),
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w400),
-                                    )
-                                  ],
+                                InkWell(
+                                  onTap: () {
+                                    navigateto(context, AppliedJobDet_screen());
+                                  },
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        'UI/UX Designer',
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w500,
+                                            fontFamily: 'sfm'),
+                                      ),
+                                      SizedBox(
+                                        height: 4.h,
+                                      ),
+                                      Text(
+                                        'Spectrum • Jakarta, Indonesia ',
+                                        style: TextStyle(
+                                            color: Color(0xff374151),
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w400),
+                                      )
+                                    ],
+                                  ),
                                 ),
                                 SizedBox(
                                   width: 100.w,
@@ -227,6 +243,32 @@ class _applied_pageState extends State<applied_page>
                                     color: Color(0xffD1D5DB),
                                   ),
                                   borderRadius: BorderRadius.circular(8)),
+                              child: Center(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(top: 5),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      customStepper(
+                                        currentIndex: 0,
+                                        index: 0,
+                                        onTap: () {},
+                                      ),
+                                      customStepper(
+                                        currentIndex: 0,
+                                        index: 1,
+                                        onTap: () {},
+                                      ),
+                                      customStepper(
+                                        islast: true,
+                                        currentIndex: 0,
+                                        index: 2,
+                                        onTap: () {},
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
                               //here----------------------------------------------------------------------------------------------------------//
                             ),
                           ]),

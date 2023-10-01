@@ -82,6 +82,7 @@ class _EditeProfile_screenState extends State<EditeProfile_screen> {
                     Center(
                       child: IconButton(
                           onPressed: () async {
+                            // ignore: invalid_use_of_visible_for_testing_member
                             var image = await ImagePicker.platform
                                 .getImage(source: ImageSource.gallery);
                             if (image != null) {
@@ -100,6 +101,7 @@ class _EditeProfile_screenState extends State<EditeProfile_screen> {
               Center(
                 child: TextButton(
                     onPressed: () async {
+                      // ignore: invalid_use_of_visible_for_testing_member
                       var image = await ImagePicker.platform
                           .getImage(source: ImageSource.gallery);
                       if (image != null) {

@@ -7,7 +7,7 @@ import 'package:jobsque/core/design/customStepper.dart';
 import 'package:jobsque/core/design/customText-form.dart';
 import 'package:jobsque/core/logic/helper.dart';
 import 'package:jobsque/screens/ApplyJob_screen/view.dart';
-import 'package:jobsque/screens/Home_screen/applied.dart';
+
 import 'package:jobsque/screens/applyJobSeccess_screen/view.dart';
 
 class JobStepper_screen extends StatefulWidget {
