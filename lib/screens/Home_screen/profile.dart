@@ -7,6 +7,7 @@ import 'package:jobsque/screens/Home_screen/view.dart';
 import 'package:jobsque/screens/Language_screen/language.dart';
 import 'package:jobsque/screens/Portfolio_screen/view.dart';
 import 'package:jobsque/screens/SignUp_screen/view.dart';
+import 'package:jobsque/screens/notification_screen/view.dart';
 
 class profile_page extends StatelessWidget {
   const profile_page({super.key});
@@ -306,18 +307,18 @@ class profile_page extends StatelessWidget {
               indent: 24,
               endIndent: 24,
             ),
-            ListTile(
-                leading: Image.asset(
-                  'assets/images/Frame 427320619 (2).png',
-                  cacheHeight: 40,
-                  cacheWidth: 40,
-                ),
-                title: Text('Notification',
-                    style: TextStyle(
-                        color: Color(0xff111827),
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400)),
-                trailing: SvgPicture.asset('assets/icons/arrow-right55.svg')),
+            InkWell(
+              onTap: () {},
+              child: ListTile(
+                  leading:
+                      SvgPicture.asset('assets/icons/Frame 427320619(3).svg'),
+                  title: Text('Notification',
+                      style: TextStyle(
+                          color: Color(0xff111827),
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400)),
+                  trailing: SvgPicture.asset('assets/icons/arrow-right55.svg')),
+            ),
             Divider(
               thickness: 1,
               color: Color(0xffE5E7EB),
