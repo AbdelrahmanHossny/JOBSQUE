@@ -7,6 +7,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:jobsque/core/design/customButtom.dart';
 import 'package:jobsque/core/design/customText-form.dart';
+import 'package:jobsque/core/logic/helper.dart';
+import 'package:jobsque/screens/Home_screen/view.dart';
 
 class EditeProfile_screen extends StatefulWidget {
   const EditeProfile_screen({super.key});
@@ -29,7 +31,12 @@ class _EditeProfile_screenState extends State<EditeProfile_screen> {
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Row(
                 children: [
-                  SvgPicture.asset('assets/icons/arrow-left (1).svg'),
+                  InkWell(
+                      onTap: () {
+                        navigateto(context, home_screen());
+                      },
+                      child:
+                          SvgPicture.asset('assets/icons/arrow-left (1).svg')),
                   SizedBox(
                     width: 66.5.w,
                   ),
@@ -73,11 +80,13 @@ class _EditeProfile_screenState extends State<EditeProfile_screen> {
                               fit: BoxFit.fill,
                             ),
                           )
-                        : Image.network(
-                            'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Crystal_personal.svg/640px-Crystal_personal.svg.png',
-                            width: 100.w,
-                            height: 100.h,
-                            fit: BoxFit.fill,
+                        : ClipOval(
+                            child: Image.network(
+                              'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Crystal_personal.svg/640px-Crystal_personal.svg.png',
+                              width: 100.w,
+                              height: 100.h,
+                              fit: BoxFit.fill,
+                            ),
                           ),
                     Center(
                       child: IconButton(

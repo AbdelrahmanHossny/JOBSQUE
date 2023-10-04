@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:jobsque/core/logic/helper.dart';
+import 'package:jobsque/screens/EditeProfile_screen/view.dart';
+import 'package:jobsque/screens/Home_screen/view.dart';
+import 'package:jobsque/screens/Language_screen/language.dart';
+import 'package:jobsque/screens/Portfolio_screen/view.dart';
+import 'package:jobsque/screens/SignUp_screen/view.dart';
 
 class profile_page extends StatelessWidget {
   const profile_page({super.key});
@@ -9,49 +14,71 @@ class profile_page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xffD6E4FF),
-        elevation: 0,
-        flexibleSpace: Padding(
-          padding: const EdgeInsets.only(top: 60),
-          child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-            Image.asset(
-              'assets/images/arrow-left.png',
-              cacheHeight: 24,
-              cacheWidth: 24,
-            ),
-            Text(
-              'profile_page',
-              style: TextStyle(
-                  color: Color(0xff111827),
-                  fontSize: 20,
-                  fontWeight: FontWeight.w500),
-            ),
-            Image.asset(
-              'assets/images/logout.png',
-              cacheHeight: 24,
-              cacheWidth: 24,
-            )
-          ]),
-        ),
-      ),
       body: ListView(
         children: [
           Column(children: [
             Stack(
               children: [
                 Container(
-                  height: 111,
+                  height: 195,
                   width: 420,
                   decoration: BoxDecoration(color: Color(0xffD6E4FF)),
                 ),
-                Center(
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 57),
-                    child: CircleAvatar(
-                      radius: 45,
-                      backgroundImage: AssetImage('assets/images/Profile.png'),
+                Padding(
+                  padding: const EdgeInsets.only(top: 30),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        InkWell(
+                            onTap: () {
+                              navigateto(context, home_screen());
+                            },
+                            child: SvgPicture.asset(
+                                'assets/icons/arrow-left (1).svg')),
+                        Text(
+                          'profile_page',
+                          style: TextStyle(
+                              color: Color(0xff111827),
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500),
+                        ),
+                        InkWell(
+                            onTap: () {
+                              showDialog(
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                    title: Text('LogOut'),
+                                    content: Text('Do you want to Logout ?'),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () {
+                                          navigateto(context, SignUp_screen(),
+                                              removeuntil: false);
+                                        },
+                                        child: Text('Logout'),
+                                      ),
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: Text('cancel'),
+                                      ),
+                                    ]),
+                              );
+                            },
+                            child: SvgPicture.asset('assets/icons/logout1.svg'))
+                      ]),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 85),
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 57),
+                      child: CircleAvatar(
+                        radius: 45,
+                        backgroundImage:
+                            AssetImage('assets/images/Profile.png'),
+                      ),
                     ),
                   ),
                 )
@@ -175,13 +202,18 @@ class profile_page extends StatelessWidget {
                         fontSize: 16,
                         fontWeight: FontWeight.w500),
                   ),
-                  Text(
-                    'Edit',
-                    style: TextStyle(
-                        color: Color(0xff3366FF),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500),
-                  )
+                  InkWell(
+                    onTap: () {
+                      navigateto(context, EditeProfile_screen());
+                    },
+                    child: Text(
+                      'Edit',
+                      style: TextStyle(
+                          color: Color(0xff3366FF),
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -215,21 +247,18 @@ class profile_page extends StatelessWidget {
             SizedBox(
               height: 16,
             ),
-            ListTile(
-              leading: Image.asset(
-                'assets/images/Frame 427320627.png',
-                cacheHeight: 40,
-                cacheWidth: 40,
-              ),
-              title: Text('Edit Profile',
-                  style: TextStyle(
-                      color: Color(0xff111827),
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400)),
-              trailing: Image.asset(
-                'assets/images/arrow-right1.png',
-                cacheHeight: 16,
-                cacheWidth: 16,
+            InkWell(
+              onTap: () {
+                navigateto(context, EditeProfile_screen());
+              },
+              child: ListTile(
+                leading: SvgPicture.asset('assets/icons/Frame 427320627.svg'),
+                title: Text('Edit Profile',
+                    style: TextStyle(
+                        color: Color(0xff111827),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400)),
+                trailing: SvgPicture.asset('assets/icons/arrow-right55.svg'),
               ),
             ),
             Divider(
@@ -238,22 +267,38 @@ class profile_page extends StatelessWidget {
               indent: 24,
               endIndent: 24,
             ),
-            ListTile(
-              leading: Image.asset(
-                'assets/images/Frame 427320619.png',
-                cacheHeight: 40,
-                cacheWidth: 40,
-              ),
-              title: Text('Portfolio',
-                  style: TextStyle(
-                      color: Color(0xff111827),
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400)),
-              trailing: Image.asset(
-                'assets/images/arrow-right1.png',
-                cacheHeight: 16,
-                cacheWidth: 16,
-              ),
+            InkWell(
+              onTap: () {
+                navigateto(context, Portofolio_screen());
+              },
+              child: ListTile(
+                  leading: SvgPicture.asset('assets/icons/Frame 427320619.svg'),
+                  title: Text('Portfolio',
+                      style: TextStyle(
+                          color: Color(0xff111827),
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400)),
+                  trailing: SvgPicture.asset('assets/icons/arrow-right55.svg')),
+            ),
+            Divider(
+              thickness: 1,
+              color: Color(0xffE5E7EB),
+              indent: 24,
+              endIndent: 24,
+            ),
+            InkWell(
+              onTap: () {
+                navigateto(context, language_screen());
+              },
+              child: ListTile(
+                  leading:
+                      SvgPicture.asset('assets/icons/Frame 427320619 (1).svg'),
+                  title: Text('Langauge',
+                      style: TextStyle(
+                          color: Color(0xff111827),
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400)),
+                  trailing: SvgPicture.asset('assets/icons/arrow-right55.svg')),
             ),
             Divider(
               thickness: 1,
@@ -262,22 +307,17 @@ class profile_page extends StatelessWidget {
               endIndent: 24,
             ),
             ListTile(
-              leading: Image.asset(
-                'assets/images/Frame 427320619 (1).png',
-                cacheHeight: 40,
-                cacheWidth: 40,
-              ),
-              title: Text('Langauge',
-                  style: TextStyle(
-                      color: Color(0xff111827),
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400)),
-              trailing: Image.asset(
-                'assets/images/arrow-right1.png',
-                cacheHeight: 16,
-                cacheWidth: 16,
-              ),
-            ),
+                leading: Image.asset(
+                  'assets/images/Frame 427320619 (2).png',
+                  cacheHeight: 40,
+                  cacheWidth: 40,
+                ),
+                title: Text('Notification',
+                    style: TextStyle(
+                        color: Color(0xff111827),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400)),
+                trailing: SvgPicture.asset('assets/icons/arrow-right55.svg')),
             Divider(
               thickness: 1,
               color: Color(0xffE5E7EB),
@@ -285,45 +325,17 @@ class profile_page extends StatelessWidget {
               endIndent: 24,
             ),
             ListTile(
-              leading: Image.asset(
-                'assets/images/Frame 427320619 (2).png',
-                cacheHeight: 40,
-                cacheWidth: 40,
-              ),
-              title: Text('Notification',
-                  style: TextStyle(
-                      color: Color(0xff111827),
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400)),
-              trailing: Image.asset(
-                'assets/images/arrow-right1.png',
-                cacheHeight: 16,
-                cacheWidth: 16,
-              ),
-            ),
-            Divider(
-              thickness: 1,
-              color: Color(0xffE5E7EB),
-              indent: 24,
-              endIndent: 24,
-            ),
-            ListTile(
-              leading: Image.asset(
-                'assets/images/Frame 427320620.png',
-                cacheHeight: 40,
-                cacheWidth: 40,
-              ),
-              title: Text('Login and security',
-                  style: TextStyle(
-                      color: Color(0xff111827),
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400)),
-              trailing: Image.asset(
-                'assets/images/arrow-right1.png',
-                cacheHeight: 16,
-                cacheWidth: 16,
-              ),
-            ),
+                leading: Image.asset(
+                  'assets/images/Frame 427320620.png',
+                  cacheHeight: 40,
+                  cacheWidth: 40,
+                ),
+                title: Text('Login and security',
+                    style: TextStyle(
+                        color: Color(0xff111827),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400)),
+                trailing: SvgPicture.asset('assets/icons/arrow-right55.svg')),
             Divider(
               thickness: 1,
               color: Color(0xffE5E7EB),
@@ -348,19 +360,14 @@ class profile_page extends StatelessWidget {
             ),
             SizedBox(height: 24),
             ListTile(
-              title: Text(
-                'Accesibility',
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    color: Color(0xff111827)),
-              ),
-              trailing: Image.asset(
-                'assets/images/arrow-right1.png',
-                cacheHeight: 16,
-                cacheWidth: 16,
-              ),
-            ),
+                title: Text(
+                  'Accesibility',
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xff111827)),
+                ),
+                trailing: SvgPicture.asset('assets/icons/arrow-right55.svg')),
             Divider(
               thickness: 1,
               color: Color(0xffE5E7EB),
@@ -368,19 +375,14 @@ class profile_page extends StatelessWidget {
               endIndent: 24,
             ),
             ListTile(
-              title: Text(
-                'Help Center',
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    color: Color(0xff111827)),
-              ),
-              trailing: Image.asset(
-                'assets/images/arrow-right1.png',
-                cacheHeight: 16,
-                cacheWidth: 16,
-              ),
-            ),
+                title: Text(
+                  'Help Center',
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xff111827)),
+                ),
+                trailing: SvgPicture.asset('assets/icons/arrow-right55.svg')),
             Divider(
               thickness: 1,
               color: Color(0xffE5E7EB),
@@ -388,19 +390,14 @@ class profile_page extends StatelessWidget {
               endIndent: 24,
             ),
             ListTile(
-              title: Text(
-                'Terms & Conditions',
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    color: Color(0xff111827)),
-              ),
-              trailing: Image.asset(
-                'assets/images/arrow-right1.png',
-                cacheHeight: 16,
-                cacheWidth: 16,
-              ),
-            ),
+                title: Text(
+                  'Terms & Conditions',
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xff111827)),
+                ),
+                trailing: SvgPicture.asset('assets/icons/arrow-right55.svg')),
             Divider(
               thickness: 1,
               color: Color(0xffE5E7EB),
@@ -408,19 +405,14 @@ class profile_page extends StatelessWidget {
               endIndent: 24,
             ),
             ListTile(
-              title: Text(
-                'Privacy Policy',
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    color: Color(0xff111827)),
-              ),
-              trailing: Image.asset(
-                'assets/images/arrow-right1.png',
-                cacheHeight: 16,
-                cacheWidth: 16,
-              ),
-            ),
+                title: Text(
+                  'Privacy Policy',
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xff111827)),
+                ),
+                trailing: SvgPicture.asset('assets/icons/arrow-right55.svg')),
             Divider(
               thickness: 1,
               color: Color(0xffE5E7EB),
