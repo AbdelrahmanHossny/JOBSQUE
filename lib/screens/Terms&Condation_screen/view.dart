@@ -24,10 +24,10 @@ class Terms_screen extends StatelessWidget {
                     },
                     child: SvgPicture.asset('assets/icons/arrow-left (1).svg')),
                 SizedBox(
-                  width: 86.5.w,
+                  width: 53.5.w,
                 ),
                 Text(
-                  'Help Center ',
+                  'Terms & Conditions ',
                   style: TextStyle(
                       fontFamily: 'sfm',
                       fontSize: 20,

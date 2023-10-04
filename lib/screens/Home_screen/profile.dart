@@ -41,7 +41,7 @@ class profile_page extends StatelessWidget {
                             child: SvgPicture.asset(
                                 'assets/icons/arrow-left (1).svg')),
                         Text(
-                          'profile_page',
+                          'Profile',
                           style: TextStyle(
                               color: Color(0xff111827),
                               fontSize: 20,
