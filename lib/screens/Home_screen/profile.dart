@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:jobsque/core/logic/helper.dart';
+import 'package:jobsque/screens/EditeNotification_screen/view.dart';
 import 'package:jobsque/screens/EditeProfile_screen/view.dart';
 import 'package:jobsque/screens/Home_screen/view.dart';
-import 'package:jobsque/screens/Language_screen/language.dart';
+import 'package:jobsque/screens/Language_screen/view.dart';
 import 'package:jobsque/screens/Portfolio_screen/view.dart';
 import 'package:jobsque/screens/SignUp_screen/view.dart';
-import 'package:jobsque/screens/notification_screen/view.dart';
 
 class profile_page extends StatelessWidget {
   const profile_page({super.key});
@@ -308,7 +308,9 @@ class profile_page extends StatelessWidget {
               endIndent: 24,
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                navigateto(context, EditeNotification_screen());
+              },
               child: ListTile(
                   leading:
                       SvgPicture.asset('assets/icons/Frame 427320619(3).svg'),
