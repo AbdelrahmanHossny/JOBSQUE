@@ -4,10 +4,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:jobsque/core/logic/helper.dart';
 import 'package:jobsque/screens/EditeNotification_screen/view.dart';
 import 'package:jobsque/screens/EditeProfile_screen/view.dart';
+import 'package:jobsque/screens/HellpCenter_screen/view.dart';
 import 'package:jobsque/screens/Home_screen/view.dart';
 import 'package:jobsque/screens/Language_screen/view.dart';
 import 'package:jobsque/screens/Portfolio_screen/view.dart';
 import 'package:jobsque/screens/SignUp_screen/view.dart';
+import 'package:jobsque/screens/Terms&Condation_screen/view.dart';
+import 'package:jobsque/screens/loginandscurity_screen/view.dart';
+import 'package:jobsque/screens/privacy_screen/view.dart';
 
 class profile_page extends StatelessWidget {
   const profile_page({super.key});
@@ -327,18 +331,19 @@ class profile_page extends StatelessWidget {
               indent: 24,
               endIndent: 24,
             ),
-            ListTile(
-                leading: Image.asset(
-                  'assets/images/Frame 427320620.png',
-                  cacheHeight: 40,
-                  cacheWidth: 40,
-                ),
-                title: Text('Login and security',
-                    style: TextStyle(
-                        color: Color(0xff111827),
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400)),
-                trailing: SvgPicture.asset('assets/icons/arrow-right55.svg')),
+            InkWell(
+              onTap: () {
+                navigateto(context, Security_screen());
+              },
+              child: ListTile(
+                  leading: SvgPicture.asset('assets/icons/Frame 427320620.svg'),
+                  title: Text('Login and security',
+                      style: TextStyle(
+                          color: Color(0xff111827),
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400)),
+                  trailing: SvgPicture.asset('assets/icons/arrow-right55.svg')),
+            ),
             Divider(
               thickness: 1,
               color: Color(0xffE5E7EB),
@@ -377,45 +382,60 @@ class profile_page extends StatelessWidget {
               indent: 24,
               endIndent: 24,
             ),
-            ListTile(
-                title: Text(
-                  'Help Center',
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xff111827)),
-                ),
-                trailing: SvgPicture.asset('assets/icons/arrow-right55.svg')),
+            InkWell(
+              onTap: () {
+                navigateto(context, HelpCenter_screen());
+              },
+              child: ListTile(
+                  title: Text(
+                    'Help Center',
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xff111827)),
+                  ),
+                  trailing: SvgPicture.asset('assets/icons/arrow-right55.svg')),
+            ),
             Divider(
               thickness: 1,
               color: Color(0xffE5E7EB),
               indent: 24,
               endIndent: 24,
             ),
-            ListTile(
-                title: Text(
-                  'Terms & Conditions',
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xff111827)),
-                ),
-                trailing: SvgPicture.asset('assets/icons/arrow-right55.svg')),
+            InkWell(
+              onTap: () {
+                navigateto(context, Terms_screen());
+              },
+              child: ListTile(
+                  title: Text(
+                    'Terms & Conditions',
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xff111827)),
+                  ),
+                  trailing: SvgPicture.asset('assets/icons/arrow-right55.svg')),
+            ),
             Divider(
               thickness: 1,
               color: Color(0xffE5E7EB),
               indent: 24,
               endIndent: 24,
             ),
-            ListTile(
-                title: Text(
-                  'Privacy Policy',
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xff111827)),
-                ),
-                trailing: SvgPicture.asset('assets/icons/arrow-right55.svg')),
+            InkWell(
+              onTap: () {
+                navigateto(context, Privacy_screen());
+              },
+              child: ListTile(
+                  title: Text(
+                    'Privacy Policy',
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xff111827)),
+                  ),
+                  trailing: SvgPicture.asset('assets/icons/arrow-right55.svg')),
+            ),
             Divider(
               thickness: 1,
               color: Color(0xffE5E7EB),

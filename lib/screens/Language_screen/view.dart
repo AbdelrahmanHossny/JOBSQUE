@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:jobsque/core/logic/helper.dart';
-import 'package:jobsque/screens/Home_screen/view.dart';
 
 class language_screen extends StatefulWidget {
   const language_screen({super.key});
@@ -24,7 +22,7 @@ class _language_screenState extends State<language_screen> {
               children: [
                 InkWell(
                     onTap: () {
-                      navigateto(context, home_screen());
+                      Navigator.pop(context);
                     },
                     child: SvgPicture.asset('assets/icons/arrow-left (1).svg')),
                 SizedBox(

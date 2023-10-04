@@ -4,8 +4,6 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:jobsque/core/logic/helper.dart';
-import 'package:jobsque/screens/Home_screen/view.dart';
 
 class Portofolio_screen extends StatelessWidget {
   const Portofolio_screen({super.key});
@@ -21,7 +19,7 @@ class Portofolio_screen extends StatelessWidget {
             Row(children: [
               InkWell(
                   onTap: () {
-                    navigateto(context, home_screen());
+                    Navigator.pop(context);
                   },
                   child: SvgPicture.asset('assets/icons/arrow-left (1).svg')),
               SizedBox(
