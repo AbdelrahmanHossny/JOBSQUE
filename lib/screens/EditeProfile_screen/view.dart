@@ -27,6 +27,9 @@ class _EditeProfile_screenState extends State<EditeProfile_screen> {
           child: SingleChildScrollView(
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              SizedBox(
+                height: 16.h,
+              ),
               Row(
                 children: [
                   InkWell(

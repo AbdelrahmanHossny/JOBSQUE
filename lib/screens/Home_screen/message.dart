@@ -49,6 +49,7 @@ class message_page extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 30),
                   child: TextFormField(
+                    cursorColor: Color(0xff3366FF),
                     decoration: InputDecoration(
                         contentPadding: EdgeInsets.symmetric(horizontal: 14),
                         enabledBorder: OutlineInputBorder(
@@ -59,6 +60,9 @@ class message_page extends StatelessWidget {
                           icon: SvgPicture.asset(
                               'assets/icons/search-normal.svg'),
                         ),
+                        focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Color(0xffD1D5DB)),
+                            borderRadius: BorderRadius.circular(100)),
                         hintText: 'Search messages....'),
                   ),
                 ),

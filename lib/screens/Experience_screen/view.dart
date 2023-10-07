@@ -21,9 +21,16 @@ class _Experience_screenState extends State<Experience_screen> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Column(children: [
+            SizedBox(
+              height: 16.h,
+            ),
             Row(
               children: [
-                SvgPicture.asset('assets/icons/arrow-left (1).svg'),
+                InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: SvgPicture.asset('assets/icons/arrow-left (1).svg')),
                 SizedBox(
                   width: 95.w,
                 ),

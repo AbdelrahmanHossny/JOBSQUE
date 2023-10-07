@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:jobsque/core/design/customprocess.dart';
+import 'package:jobsque/core/logic/helper.dart';
+import 'package:jobsque/screens/EditeProfile_screen/view.dart';
+import 'package:jobsque/screens/Experience_screen/view.dart';
+import 'package:jobsque/screens/Portfolio_screen/view.dart';
+import 'package:jobsque/screens/education_screen/view.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class completProfile_screen extends StatefulWidget {
@@ -85,21 +90,35 @@ class _completProfile_screenState extends State<completProfile_screen> {
         SizedBox(
           height: 34.h,
         ),
-        ListView.separated(
-            separatorBuilder: (context, index) => Column(
-                  children: [
-                    Container(
-                      width: 1,
-                      height: 20,
-                      color: Color(0xffD1D5DB),
-                    ),
-                  ],
-                ),
-            itemCount: 4,
-            physics: NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemBuilder: (context, index) =>
-                customproccess(title: title[index], subtitle: subtitle[index]))
+        customproccess(
+          title: title[0],
+          subtitle: subtitle[0],
+          onTap: () {
+            navigateto(context, EditeProfile_screen());
+          },
+        ),
+        customproccess(
+          title: title[1],
+          subtitle: subtitle[1],
+          onTap: () {
+            navigateto(context, Education_screen());
+          },
+        ),
+        customproccess(
+          title: title[2],
+          subtitle: subtitle[2],
+          onTap: () {
+            navigateto(context, Experience_screen());
+          },
+        ),
+        customproccess(
+          title: title[3],
+          subtitle: subtitle[3],
+          onTap: () {
+            navigateto(context, Portofolio_screen());
+          },
+          islast: true,
+        ),
       ]),
     );
   }

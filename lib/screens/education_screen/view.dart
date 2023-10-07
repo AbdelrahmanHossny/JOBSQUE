@@ -20,9 +20,16 @@ class _Education_screenState extends State<Education_screen> {
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: SingleChildScrollView(
           child: Column(children: [
+            SizedBox(
+              height: 16.h,
+            ),
             Row(
               children: [
-                SvgPicture.asset('assets/icons/arrow-left (1).svg'),
+                InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: SvgPicture.asset('assets/icons/arrow-left (1).svg')),
                 SizedBox(
                   width: 95.w,
                 ),

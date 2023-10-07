@@ -16,6 +16,9 @@ class Portofolio_screen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            SizedBox(
+              height: 16.h,
+            ),
             Row(children: [
               InkWell(
                   onTap: () {
