@@ -45,6 +45,7 @@ dependencies:
   im_stepper: ^1.0.1+1
   flutter_timeline: ^0.3.0
   flutter_switch: ^0.3.2
+  percent_indicator: ^4.2.3
 
 dev_dependencies:
   flutter_test:

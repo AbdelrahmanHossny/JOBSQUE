@@ -10,6 +10,7 @@ import 'package:jobsque/screens/Language_screen/view.dart';
 import 'package:jobsque/screens/Portfolio_screen/view.dart';
 import 'package:jobsque/screens/SignUp_screen/view.dart';
 import 'package:jobsque/screens/Terms&Condation_screen/view.dart';
+import 'package:jobsque/screens/completProfile_screen/view.dart';
 import 'package:jobsque/screens/loginandscurity_screen/view.dart';
 import 'package:jobsque/screens/privacy_screen/view.dart';
 
@@ -254,7 +255,7 @@ class profile_page extends StatelessWidget {
             ),
             InkWell(
               onTap: () {
-                navigateto(context, EditeProfile_screen());
+                navigateto(context, completProfile_screen());
               },
               child: ListTile(
                 leading: SvgPicture.asset('assets/icons/Frame 427320627.svg'),
