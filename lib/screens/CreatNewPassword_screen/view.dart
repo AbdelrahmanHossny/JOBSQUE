@@ -59,7 +59,7 @@ class CreatNewPassword_screen extends StatelessWidget {
             SizedBox(
               height: 44.h,
             ),
-            CustomForm(
+            CustomForm(obscureText: true,
               controller: _password,
               isvalid: true,
               isvis: false,
@@ -70,7 +70,7 @@ class CreatNewPassword_screen extends StatelessWidget {
             SizedBox(
               height: 57.h,
             ),
-            CustomForm(
+            CustomForm(obscureText: true,
                 controller: _confirmpassword,
                 isvalid: true,
                 isvis: false,

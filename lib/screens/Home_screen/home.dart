@@ -15,6 +15,7 @@ class home_page extends StatefulWidget {
 }
 
 class _home_pageState extends State<home_page> {
+  final urlcontroller = TextEditingController();
   int select = 0;
   @override
   Widget build(BuildContext context) {
@@ -70,6 +71,8 @@ class _home_pageState extends State<home_page> {
             height: 28.h,
           ),
           CustomForm(
+              obscureText: false,
+              controller: urlcontroller,
               keyboardType: TextInputType.url,
               icon: 'assets/icons/search-normal.svg',
               hint: 'Search....',

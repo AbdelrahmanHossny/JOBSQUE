@@ -13,7 +13,7 @@ class CahngePassword_screen extends StatefulWidget {
 }
 
 class _CahngePassword_screenState extends State<CahngePassword_screen> {
-  TextEditingController? controller;
+  final passwordcontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,8 +61,8 @@ class _CahngePassword_screenState extends State<CahngePassword_screen> {
           SizedBox(height: 8),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: CustomForm(
-                controller: controller,
+            child: CustomForm(obscureText: true,
+                controller: passwordcontroller,
                 isvalid: true,
                 keyboardType: TextInputType.visiblePassword,
                 icon: 'assets/icons/lock (1).svg',
@@ -83,8 +83,8 @@ class _CahngePassword_screenState extends State<CahngePassword_screen> {
           SizedBox(height: 8),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: CustomForm(
-                controller: controller,
+            child: CustomForm(obscureText: true,
+                controller: passwordcontroller,
                 isvalid: true,
                 keyboardType: TextInputType.visiblePassword,
                 icon: 'assets/icons/lock (1).svg',
@@ -105,8 +105,8 @@ class _CahngePassword_screenState extends State<CahngePassword_screen> {
           SizedBox(height: 8),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: CustomForm(
-                controller: controller,
+            child: CustomForm(obscureText: true,
+                controller: passwordcontroller,
                 isvalid: true,
                 keyboardType: TextInputType.visiblePassword,
                 icon: 'assets/icons/lock (1).svg',

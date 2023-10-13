@@ -9,6 +9,7 @@ class CustomForm extends StatefulWidget {
   final bool isvis;
   final bool isvalid;
   final TextEditingController? controller;
+  final bool obscureText;
 
   const CustomForm({
     super.key,
@@ -17,7 +18,8 @@ class CustomForm extends StatefulWidget {
     required this.hint,
     required this.isvis,
     required this.isvalid,
-    this.controller,
+    required this.controller,
+    required this.obscureText,
   });
 
   @override
@@ -26,11 +28,11 @@ class CustomForm extends StatefulWidget {
 
 class _CustomFormState extends State<CustomForm> {
   late bool obscureText = false;
-  var controller;
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: controller,
+      controller: widget.controller,
       validator: widget.isvalid
           ? (Text) {
               if (Text!.length < 5) {

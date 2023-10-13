@@ -15,6 +15,7 @@ class ForgotPassword_screen extends StatefulWidget {
 }
 
 class _ForgotPassword_screenState extends State<ForgotPassword_screen> {
+  final Emailcontroller =TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +61,8 @@ class _ForgotPassword_screenState extends State<ForgotPassword_screen> {
               SizedBox(
                 height: 40.h,
               ),
-              CustomForm(
+              CustomForm(controller:Emailcontroller ,
+                obscureText: false,
                   isvalid: false,
                   isvis: true,
                   keyboardType: TextInputType.emailAddress,

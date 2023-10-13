@@ -14,7 +14,6 @@ class TypeOfWork_screen extends StatefulWidget {
 
 class _TypeOfWork_screenState extends State<TypeOfWork_screen> {
   int Select = 0;
-  List<String> select = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(

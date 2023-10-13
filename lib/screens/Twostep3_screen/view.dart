@@ -139,6 +139,7 @@ class _TwoStep3_screenState extends State<TwoStep3_screen> {
                 height: 8.h,
               ),
               CustomForm(
+                  obscureText: true,
                   controller: controller,
                   isvalid: true,
                   keyboardType: TextInputType.visiblePassword,

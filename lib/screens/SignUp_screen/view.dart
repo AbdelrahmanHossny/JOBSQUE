@@ -16,6 +16,8 @@ class SignUp_screen extends StatefulWidget {
 }
 
 class _SignUp_screenState extends State<SignUp_screen> {
+  final Emailcontroller = TextEditingController();
+  final passwordcontroller = TextEditingController();
   bool isChecked = false;
   @override
   Widget build(BuildContext context) {
@@ -58,7 +60,8 @@ class _SignUp_screenState extends State<SignUp_screen> {
             SizedBox(
               height: 44.h,
             ),
-            CustomForm(
+            CustomForm(controller: Emailcontroller,
+                obscureText: false,
                 isvalid: false,
                 keyboardType: TextInputType.emailAddress,
                 icon: 'assets/icons/profile.svg',
@@ -67,7 +70,8 @@ class _SignUp_screenState extends State<SignUp_screen> {
             SizedBox(
               height: 16.h,
             ),
-            CustomForm(
+            CustomForm(controller: passwordcontroller,
+                obscureText: true,
                 isvalid: false,
                 keyboardType: TextInputType.visiblePassword,
                 icon: 'assets/icons/lock (1).svg',

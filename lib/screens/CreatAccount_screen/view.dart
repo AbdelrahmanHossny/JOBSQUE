@@ -15,8 +15,10 @@ class CreatAccount_screen extends StatefulWidget {
 }
 
 class _CreatAccount_screenState extends State<CreatAccount_screen> {
-  TextEditingController? controller;
-  @override
+  final Namecontroller = TextEditingController();
+  final Emailcontroller = TextEditingController();
+  final passwordcontroller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     GlobalKey<FormState> formState = new GlobalKey<FormState>();
@@ -33,10 +35,11 @@ class _CreatAccount_screenState extends State<CreatAccount_screen> {
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
               InkWell(
                   onTap: () {},
-                  child: InkWell(onTap: () {
-                      navigateto(context, SignUp_screen());
-                    },
-                    child: SvgPicture.asset('assets/icons/arrow-left.svg'))),
+                  child: InkWell(
+                      onTap: () {
+                        navigateto(context, SignUp_screen());
+                      },
+                      child: SvgPicture.asset('assets/icons/arrow-left.svg'))),
               SvgPicture.asset('assets/icons/Logo.svg'),
             ]),
             SizedBox(
@@ -57,6 +60,8 @@ class _CreatAccount_screenState extends State<CreatAccount_screen> {
               height: 44.h,
             ),
             CustomForm(
+                controller: Namecontroller,
+                obscureText: false,
                 isvalid: false,
                 keyboardType: TextInputType.emailAddress,
                 icon: 'assets/icons/profile.svg',
@@ -66,6 +71,8 @@ class _CreatAccount_screenState extends State<CreatAccount_screen> {
               height: 16.h,
             ),
             CustomForm(
+                controller: Emailcontroller,
+                obscureText: false,
                 isvalid: false,
                 keyboardType: TextInputType.emailAddress,
                 icon: 'assets/icons/sms.svg',
@@ -75,7 +82,8 @@ class _CreatAccount_screenState extends State<CreatAccount_screen> {
               height: 16.h,
             ),
             CustomForm(
-                controller: controller,
+                obscureText: true,
+                controller: passwordcontroller,
                 isvalid: true,
                 keyboardType: TextInputType.visiblePassword,
                 icon: 'assets/icons/lock (1).svg',
