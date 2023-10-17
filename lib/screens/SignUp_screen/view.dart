@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -19,6 +20,28 @@ class _SignUp_screenState extends State<SignUp_screen> {
   final Emailcontroller = TextEditingController();
   final passwordcontroller = TextEditingController();
   bool isChecked = false;
+
+  bool isloading = false;
+
+  login() async {
+    isloading = true;
+    setState(() {});
+
+    try {
+      final response = await Dio()
+          .post('https://project2.amit-learning.com/api/auth/login', data: {
+        'email': Emailcontroller.text,
+        'password': passwordcontroller.text
+      });
+      print(response.data);
+    } catch (e) {
+      print('error caught: $e');
+    }
+    isloading = false;
+    setState(() {});
+    navigateto(context, home_screen(), replacement: true);
+  }
+
   @override
   Widget build(BuildContext context) {
     GlobalKey<FormState> formState = new GlobalKey<FormState>();
@@ -60,7 +83,8 @@ class _SignUp_screenState extends State<SignUp_screen> {
             SizedBox(
               height: 44.h,
             ),
-            CustomForm(controller: Emailcontroller,
+            CustomForm(
+                controller: Emailcontroller,
                 obscureText: false,
                 isvalid: false,
                 keyboardType: TextInputType.emailAddress,
@@ -70,7 +94,8 @@ class _SignUp_screenState extends State<SignUp_screen> {
             SizedBox(
               height: 16.h,
             ),
-            CustomForm(controller: passwordcontroller,
+            CustomForm(
+                controller: passwordcontroller,
                 obscureText: true,
                 isvalid: false,
                 keyboardType: TextInputType.visiblePassword,
@@ -154,12 +179,20 @@ class _SignUp_screenState extends State<SignUp_screen> {
             SizedBox(
               height: 20.h,
             ),
-            CustomButtom(
-              text: 'Login',
-              onPressed: () {
-                navigateto(context, home_screen(), replacement: true);
-              },
-            ),
+            isloading
+                ? Center(
+                    child: CircularProgressIndicator(
+                      color: Color(0xff3366FF),
+                    ),
+                  )
+                : CustomButtom(
+                    text: 'Login',
+                    onPressed: () {
+                      print(Emailcontroller.text);
+                      print(passwordcontroller.text);
+                      login();
+                    },
+                  ),
             SizedBox(
               height: 20.h,
             ),

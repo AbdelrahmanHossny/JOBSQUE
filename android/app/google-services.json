@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "53114952693",
+    "project_id": "jobsque-8d479",
+    "storage_bucket": "jobsque-8d479.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:53114952693:android:17c4c89af1d7cd4aea5ebc",
+        "android_client_info": {
+          "package_name": "com.example.jobsque"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJzBP-DRxIJZEaJwEIxrbRxcgWUbvwQJM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

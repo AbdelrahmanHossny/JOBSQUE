@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -18,6 +19,25 @@ class _CreatAccount_screenState extends State<CreatAccount_screen> {
   final Namecontroller = TextEditingController();
   final Emailcontroller = TextEditingController();
   final passwordcontroller = TextEditingController();
+
+  bool isloading = false;
+
+  signup() async {
+    isloading = true;
+    setState(() {});
+
+    // ignore: unused_local_variable
+    final response = await Dio()
+        .post('https://project2.amit-learning.com/api/auth/register', data: {
+      'name': Namecontroller.text,
+      'email': Emailcontroller.text,
+      'password': passwordcontroller.text
+    });
+
+    isloading = false;
+    setState(() {});
+    navigateto(context, TypeOfWork_screen());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -101,17 +121,24 @@ class _CreatAccount_screenState extends State<CreatAccount_screen> {
                       fontWeight: FontWeight.w500,
                       color: Color(0xff9CA3AF)),
                 ),
-                TextButton(
-                    onPressed: () {
-                      navigateto(context, SignUp_screen());
-                    },
-                    child: Text(
-                      'Login',
-                      style: TextStyle(
+                isloading
+                    ? Center(
+                        child: CircularProgressIndicator(
                           color: Color(0xff3366FF),
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500),
-                    ))
+                        ),
+                      )
+                    : TextButton(
+                        onPressed: () {
+                          signup();
+                          navigateto(context, SignUp_screen());
+                        },
+                        child: Text(
+                          'Login',
+                          style: TextStyle(
+                              color: Color(0xff3366FF),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500),
+                        ))
               ]),
             ),
             SizedBox(
